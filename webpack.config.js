@@ -5,7 +5,8 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const isProduction = process.env.NODE_ENV == "production";
+
+const isProduction = process.env.NODE_ENV === "production";
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
@@ -27,7 +28,7 @@ const config = {
     new MiniCssExtractPlugin(),
     new FaviconsWebpackPlugin({
       logo: "assets/logo.svg",
-      outputPath: __dirname + "/dist/",
+      outputPath: path.join(__dirname, "/dist/"),
       prefix: "",
       mode: isProduction ? "webapp" : "light",
     }),
