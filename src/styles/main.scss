@@ -1,1 +1,164 @@
 @import "src/styles/normalize";
+
+$accent-color: #eecc14;
+$body-color: #282828;
+$column-background-color: #050307;
+
+html,
+body {
+  background-color: $body-color;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  text-align: center;
+}
+
+p {
+  color: #fff;
+  margin: 0;
+}
+
+a,
+a:visited {
+  color: $accent-color;
+  outline: none;
+}
+
+.frame {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.column {
+  background-color: $column-background-color;
+  min-height: 100%;
+  max-width: 100%;
+  width: 35.7143rem;
+}
+
+.container {
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0 1.75rem;
+}
+
+header {
+  background-image: url("./header.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 3rem;
+}
+
+h1,
+.tagline {
+  font-family: "Courier New", Courier, monospace;
+}
+
+h1 {
+  color: $accent-color;
+  font-size: 3rem;
+  margin-bottom: 0.2rem;
+  margin-top: 14rem;
+}
+
+.tagline {
+  color: #bbb;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.description {
+  line-height: 1.5rem;
+  padding: 0 4rem;
+  margin-bottom: 3rem;
+}
+
+button {
+  background-color: $accent-color;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  padding: 1rem 0;
+  width: 100%;
+
+  &:hover {
+    background-color: color.adjust($accent-color, $lightness: -5%);
+  }
+
+  &:active {
+    background-color: color.adjust($accent-color, $lightness: 20%);
+    color: color.adjust(#000, $lightness: 20%);
+  }
+}
+
+main {
+  margin-bottom: 4rem;
+}
+
+footer {
+  border-top: 1px solid #464646;
+
+  small {
+    color: #fff;
+    display: block;
+    margin: 1rem 0;
+  }
+}
+
+.main-display {
+  display: flex;
+  margin-bottom: 0.4rem;
+  border-top: 1px solid #464646;
+  padding-top: 4rem;
+}
+
+.reload {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 8%;
+
+  svg {
+    height: auto;
+    max-width: 100%;
+    padding: 0 3px;
+    width: 24px;
+
+    path {
+      fill: #fff;
+    }
+  }
+
+  &:hover {
+    svg {
+      path {
+        fill: $accent-color;
+      }
+    }
+  }
+
+  &:active {
+    svg {
+      path {
+        fill: color.adjust($accent-color, $lightness: -10%);
+      }
+    }
+  }
+}
+
+textarea {
+  background-color: #828282;
+  border: #000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #fff;
+  min-height: 9rem;
+  padding: 1rem;
+  text-align: left;
+  width: 92%;
+}
