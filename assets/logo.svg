@@ -1,15 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   version="1.1"
-   width="180"
-   height="180"
-   viewBox="0 0 180 180"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="https://www.w3.org/2000/svg">
-  <rect
-     style="display:inline;fill:#801bcd;fill-opacity:1;stroke:none"
-     width="180"
-     height="180"
-     x="0"
-     y="0" />
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+	<defs>
+		<style>.b{fill:#eecc14;}</style>
+	</defs>
+	<rect class="b" width="180" height="180" />
+	<path d="M0,0V180.09H180V0H0ZM147.65,147.74H32.35V32.35h115.3v115.39Z" />
+	<polygon points="137.78 90 129.82 62.13 101.94 74.07 101.94 46.2 78.06 46.2 78.06 74.07 50.18 62.13 42.22 90 70.09 97.96 54.17 117.87 74.07 133.8 90 109.91 105.93 133.8 125.83 117.87 109.91 97.96 137.78 90" />
 </svg>
