@@ -18,7 +18,7 @@
     "serve": "webpack serve",
     "start": "webpack serve --host 0.0.0.0 --https",
     "deploy": "aws s3 sync ./dist/ 's3://www.leet-lyrics.com' --delete --cache-control public,max-age=315360000",
-    "invalidate": "aws cloudfront create-invalidation --distribution-id XX --paths '/*' > /dev/null",
+    "invalidate": "aws cloudfront create-invalidation --distribution-id E3IT1H84LQ9F7E --paths '/*' > /dev/null",
     "ship": "npm run-script build && npm run-script deploy && npm run-script invalidate"
   },
   "repository": {
