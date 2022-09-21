@@ -119,13 +119,13 @@ button {
     color: color.adjust(#000, $lightness: 20%);
   }
 
-  &.copied {
-    background-color: #0eae0e;
-    color: #fff;
-  }
-
   &:disabled {
     background-color: #aaa;
+
+    &.copied {
+      background-color: #0eae0e;
+      color: #fff;
+    }
   }
 }
 
@@ -190,7 +190,7 @@ textarea {
   border: #000;
   border-radius: 5px;
   box-sizing: border-box;
-  color: #5af006;
+  color: #30f7b5;
   font-size: 1.2rem;
   line-height: 1.6rem;
   min-height: 6rem;
