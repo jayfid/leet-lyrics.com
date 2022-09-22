@@ -38,11 +38,15 @@ export const copyPassword = () => {
   });
 };
 
-export const fetchLyrics = async () =>
-  new Promise((resolve) => {
-    resolve([
-      "You probably think this song is about you",
-      "Play that funky music, white boy",
-      "Come as you are, As you were, As I want you to be",
-    ]);
-  });
+export const fetchLyrics = async () => {
+  const resp = new Request("https://api.leet-lyrics.com/lyrics");
+  return fetch(resp)
+    .then((response) => response.json())
+    .then((response) => {
+      const lyrics = [];
+      response.data.forEach((lyric) => {
+        lyrics.push(lyric.lyric);
+      });
+      return lyrics;
+    });
+};
