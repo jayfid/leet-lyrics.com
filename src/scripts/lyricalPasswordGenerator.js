@@ -32,30 +32,18 @@ class LyricalPasswordGenerator {
     return count;
   }
 
-  getMinimumReplacementCount(lyric) {
-    // hardcode that we want to replace
-    // a minimum of 25% of replaceable characters
-    return Math.floor(this.getReplaceableCharacterCount(lyric) * 0.25);
-  }
-
   leetify(lyric) {
-    const minimumReplacementCount = this.getMinimumReplacementCount(lyric);
-    let replacedCount = 0;
     let replacedLyric = "";
     for (let i = 0; i < lyric.length; i += 1) {
       const char = lyric.charAt(i).toLowerCase();
-      if (char in this.LEET_MAPPING && randomCheck(4)) {
+      if (char in this.LEET_MAPPING && randomCheck(2)) {
         const replacementIndex = getRandomIntWithLimit(
           this.LEET_MAPPING[char].length
         );
         replacedLyric = `${replacedLyric}${this.LEET_MAPPING[char][replacementIndex]}`;
-        replacedCount += 1;
       } else {
         replacedLyric = `${replacedLyric}${lyric.charAt(i)}`;
       }
-    }
-    if (replacedCount < minimumReplacementCount) {
-      throw new Error("TODO: run the lyric through again.");
     }
     return replacedLyric;
   }
