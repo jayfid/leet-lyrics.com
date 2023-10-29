@@ -4,7 +4,7 @@
   "description": "Lyric based password generator",
   "private": true,
   "engines": {
-    "node": ">=16.15"
+    "node": ">=20.9"
   },
   "main": "src/index.js",
   "scripts": {
