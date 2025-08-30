@@ -15,7 +15,7 @@ export const generatePassword = () => {
     passwordTextarea.setAttribute("readonly", false);
     passwordTextarea.value = newPassword;
     passwordTextarea.setAttribute("readonly", true);
-  } catch (error) {
+  } catch {
     showError();
   }
 };

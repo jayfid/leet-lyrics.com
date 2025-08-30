@@ -7,8 +7,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV === "production";
-const CopyPlugin = require("copy-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+const cssLoaders = [
+  isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+  "css-loader",
+  "postcss-loader",
+];
 
 const config = {
   entry: "./src/index.js",
@@ -21,7 +25,6 @@ const config = {
   },
   plugins: [
     new webpack.ProgressPlugin(),
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "src/index.html",
     }),
@@ -32,14 +35,6 @@ const config = {
       prefix: "",
       mode: isProduction ? "webapp" : "light",
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: "assets/robots.txt",
-          to: "robots.txt",
-        },
-      ],
-    }),
   ],
   module: {
     rules: [
@@ -48,8 +43,8 @@ const config = {
         loader: "babel-loader",
       },
       {
-        test: /\.(sc|c)ss$/i,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+        test: /\.css$/i,
+        use: cssLoaders,
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|ico|txt)$/i,
