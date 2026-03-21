@@ -1,7 +1,7 @@
 import { getRandomIntWithLimit, randomCheck } from "./random";
 
-class LyricalPasswordGenerator {
-  LEET_MAPPING = {
+export default class LyricalPasswordGenerator {
+  private readonly LEET_MAPPING: Record<string, string[]> = {
     a: ["4", "@"],
     b: ["6"],
     c: ["("],
@@ -17,47 +17,54 @@ class LyricalPasswordGenerator {
     x: ["%"],
   };
 
-  constructor(lyricsList) {
-    this.lyrics = lyricsList;
-  }
+  constructor(private readonly lyrics: string[]) {}
 
-  getReplaceableCharacterCount(lyric) {
+  getReplaceableCharacterCount(lyric: string): number {
     let count = 0;
+
     for (let i = 0; i < lyric.length; i += 1) {
       const char = lyric.charAt(i).toLowerCase();
+
       if (char in this.LEET_MAPPING) {
         count += 1;
       }
     }
+
     return count;
   }
 
-  leetify(lyric) {
+  leetify(lyric: string): string {
     let replacedLyric = "";
+
     for (let i = 0; i < lyric.length; i += 1) {
       const char = lyric.charAt(i).toLowerCase();
+
       if (char in this.LEET_MAPPING && randomCheck(2)) {
-        const replacementIndex = getRandomIntWithLimit(
-          this.LEET_MAPPING[char].length
-        );
-        replacedLyric = `${replacedLyric}${this.LEET_MAPPING[char][replacementIndex]}`;
-      } else {
-        replacedLyric = `${replacedLyric}${lyric.charAt(i)}`;
+        const replacements = this.LEET_MAPPING[char];
+        const replacementIndex = getRandomIntWithLimit(replacements.length);
+        replacedLyric = `${replacedLyric}${replacements[replacementIndex]}`;
+        continue;
       }
+
+      replacedLyric = `${replacedLyric}${lyric.charAt(i)}`;
     }
+
     return replacedLyric;
   }
 
-  generate() {
-    // pop random entry from list
-    if (!this.lyrics.length) {
+  generate(): string {
+    if (this.lyrics.length === 0) {
       throw new Error("Lyrics array is empty");
     }
+
     const index = getRandomIntWithLimit(this.lyrics.length);
     const lyric = this.lyrics[index];
+
+    if (lyric === undefined) {
+      throw new Error("Unable to load lyric");
+    }
+
     this.lyrics.splice(index, 1);
     return this.leetify(lyric);
   }
 }
-
-export default LyricalPasswordGenerator;

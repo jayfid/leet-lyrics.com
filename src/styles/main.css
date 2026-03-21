@@ -50,7 +50,6 @@ a {
 
 abbr[title] {
   border-bottom: none;
-  text-decoration: underline;
   text-decoration: underline dotted;
 }
 
@@ -311,24 +310,24 @@ button#copy {
   cursor: pointer;
   padding: 1rem 0;
   width: 100%;
+}
 
-  &:hover {
-    background-color: var(--accent-color-dark-5);
-  }
+button#copy:hover {
+  background-color: var(--accent-color-dark-5);
+}
 
-  &:active {
-    background-color: var(--accent-color-light-20);
-    color: #333;
-  }
+button#copy:active {
+  background-color: var(--accent-color-light-20);
+  color: #333;
+}
 
-  &:disabled {
-    background-color: #aaa;
+button#copy:disabled {
+  background-color: #aaa;
+}
 
-    &.copied {
-      background-color: #0eae0e;
-      color: #fff;
-    }
-  }
+button#copy:disabled.copied {
+  background-color: #0eae0e;
+  color: #fff;
 }
 
 main {
@@ -337,12 +336,12 @@ main {
 
 footer {
   border-top: 1px solid #464646;
+}
 
-  & small {
-    color: #fff;
-    display: block;
-    margin: 1rem 0;
-  }
+footer small {
+  color: #fff;
+  display: block;
+  margin: 1rem 0;
 }
 
 .main-display {
@@ -358,25 +357,25 @@ footer {
   display: flex;
   justify-content: center;
   width: 8%;
+}
 
-  & svg {
-    height: auto;
-    max-width: 100%;
-    padding: 0 3px;
-    width: 24px;
+.reload svg {
+  height: auto;
+  max-width: 100%;
+  padding: 0 3px;
+  width: 24px;
+}
 
-    & path {
-      fill: #fff;
-    }
-  }
+.reload svg path {
+  fill: #fff;
+}
 
-  &:hover svg path {
-    fill: var(--accent-color);
-  }
+.reload:hover svg path {
+  fill: var(--accent-color);
+}
 
-  &:active svg path {
-    fill: var(--accent-color-dark-10);
-  }
+.reload:active svg path {
+  fill: var(--accent-color-dark-10);
 }
 
 textarea {
@@ -392,9 +391,9 @@ textarea {
   padding: 1rem;
   text-align: left;
   width: 92%;
+}
 
-  &.error {
-    background-color: #d52626;
-    color: #000;
-  }
+textarea.error {
+  background-color: #d52626;
+  color: #000;
 }
