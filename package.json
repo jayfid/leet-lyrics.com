@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Lyric based password generator",
   "private": true,
+  "packageManager": "pnpm@12.16.1",
   "engines": {
     "node": ">=20.9"
   },
@@ -18,7 +19,7 @@
     "start": "vite",
     "deploy": "aws s3 sync ./dist/ 's3://www.leet-lyrics.com' --delete --cache-control public,max-age=315360000",
     "invalidate": "aws cloudfront create-invalidation --distribution-id E3IT1H84LQ9F7E --paths '/*' > /dev/null",
-    "ship": "npm run-script build && npm run-script deploy && npm run-script invalidate"
+    "ship": "pnpm run build && pnpm run deploy && pnpm run invalidate"
   },
   "repository": {
     "type": "git",
@@ -31,8 +32,8 @@
   },
   "homepage": "https://github.com/jayfid/leet-lyrics.com#readme",
   "devDependencies": {
-    "@biomejs/biome": "^2.4.8",
-    "typescript": "^5.8.2",
-    "vite": "^8.0.5"
+    "@biomejs/biome": "^2.6.4",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
   }
 }
